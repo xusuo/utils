@@ -46,3 +46,28 @@ export function handleId(arr, type) {
         } else return []
     }
 }
+
+
+
+
+
+
+export function listToTree(data, parent) {
+    let vm = this;
+    var tree = [];
+    var temp;
+    for (var i = 0; i < data.length; i++) {
+        if (data[i].parent == parent) {
+            var obj = data[i];
+            temp = filterArray(data, data[i].id);
+            if (temp.length > 0) {
+                obj.children = temp;
+            }
+            tree.push(obj);
+        }
+    }
+    return tree;
+}
+
+
+console.log(filterArray(list))
